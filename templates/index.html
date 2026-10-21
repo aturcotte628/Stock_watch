@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Marketscope</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v={{ asset_v }}">
+  <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js" defer></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}?v={{ asset_v }}" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="brand-mark">▚</span> Marketscope
+    </a>
+    <div class="search" id="search">
+      <input id="search-input" type="text" autocomplete="off" spellcheck="false"
+             placeholder="Search any US ticker or company  ( / )" aria-label="Search ticker">
+      <div class="search-results" id="search-results" hidden></div>
+    </div>
+    <button class="ghost-btn" id="theme-toggle" title="Toggle light / dark">◐</button>
+  </header>
+
+  <main id="app"><div class="loading">Loading…</div></main>
+
+  <footer class="foot">
+    Data from public Yahoo Finance endpoints, delayed and for personal use only. Not investment advice.
+  </footer>
+</body>
+</html>
