@@ -9,6 +9,21 @@ Daily price history is kept in a **local SQLite cache** so charts load instantly
 and work offline. Live quotes, intraday bars, search and fundamentals come from
 public Yahoo Finance endpoints (`yfinance` for fundamentals). No API key.
 
+## Quick start
+Tested on Python 3.12 (Linux). No API key needed.
+
+```bash
+git clone https://github.com/aturcotte628/Stock_watch.git
+cd Stock_watch
+python3 -m venv .venv && . .venv/bin/activate    # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+MARKETSCOPE_NO_BROWSER=1 python app.py           # drop the variable to auto-open your browser
+```
+
+Open <http://127.0.0.1:5000>. The history DB (`data/history.db`) starts empty; each ticker you open is downloaded on demand.
+Optionally pre-load the largest stocks (see below) so movers and the co-movement rankings have data: `python load_history.py`.
+Port 5000 is fixed in `app.py`; change it on the last line if it's taken.
+
 ## Setup
 
 ```bash
